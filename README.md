@@ -1,4 +1,4 @@
-# rails-sandbox
+# 🎱 rails-sandbox
 
 ## start
 
