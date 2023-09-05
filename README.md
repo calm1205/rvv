@@ -2,14 +2,8 @@
 
 
 ```
-$ docker build -t app
-```
+$ docker compose up
 
-対話型
-```
-$ docker run -v .:/app -it app /bin/bash
-```
-
-```
-$ docker run -v ./:/app -p 3000:3000 app
+# gem変更があれば
+$ docker compose up --build
 ```
