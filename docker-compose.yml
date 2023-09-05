@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 services:
   # Railsアプリケーションのサービス
   app:
     container_name: rails-sandbox-app
     platform: linux/amd64
     build:
-      context: .
+      context: ./app
     volumes:
       - ./app:/app
     ports:
