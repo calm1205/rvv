@@ -3,3 +3,4 @@
 log
 tmp
 Gemfile.lock
+node_modules
