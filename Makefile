@@ -4,8 +4,8 @@ build: # gemに変更があれば
 	docker compose up --build
 down:
 	docker compose down
-shell-web:
-	docker compose exec web /bin/bash
+shell-app:
+	docker compose exec app /bin/bash
 shell-frontend:
 	docker compose exec frontend /bin/bash
 console:
