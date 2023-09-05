@@ -1,13 +1,13 @@
 version: '3'
 services:
   # Railsアプリケーションのサービス
-  web:
-    container_name: rails-sandbox-web
+  app:
+    container_name: rails-sandbox-app
     platform: linux/amd64
     build:
       context: .
     volumes:
-      - ./:/app
+      - ./app:/app
     ports:
       - "3000:3000"
     depends_on:

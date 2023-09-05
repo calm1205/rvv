@@ -11,7 +11,7 @@ RUN apt-get update -y && apt-get install -y \
 WORKDIR /app
 
 # RailsアプリケーションのGem依存関係をインストール
-COPY Gemfile Gemfile.lock ./
+COPY ./app/Gemfile ./app/Gemfile.lock ./
 RUN bundle install
 
 # コンテナのポートを公開（Railsのデフォルトポート：3000）
