@@ -8,13 +8,11 @@ services:
       context: .
     volumes:
       - ./:/app
-      # - type: bind
-      #   source: ./
-      #   target: /app
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - frontend
     environment:
       DATABASE_URL: mysql2://root:password@db:3306/myapp_development # データベース接続情報
 
@@ -28,3 +26,13 @@ services:
       MYSQL_DATABASE: myapp_development
     ports:
       - "3306:3306"
+
+  # Vite + Vue.js
+  frontend:
+    container_name: rails-sandbox-frontend
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - "5173:5173"
