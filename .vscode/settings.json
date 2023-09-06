@@ -1,24 +1,11 @@
 {
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.tabSize": 2,
-  "files.autoSave": "onFocusChange",
-  "editor.renderWhitespace": "boundary",
-  "emmet.triggerExpansionOnTab": true,
-  "workbench.colorTheme": "One Dark Pro",
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
+  "cSpell.ignoreWords": ["vite"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "eslint.experimental.useFlatConfig": false,
-  "eslint.options": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  },
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
-  "cSpell.ignoreWords": [
-    "vite"
-  ],
+  }
+  // "eslint.workingDirectories": [
+  //   "./frontend"
+  // ],
 }
