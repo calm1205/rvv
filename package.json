@@ -1,0 +1,10 @@
+{
+  "name": "rvv",
+  "version": "1.0.0",
+  "scripts": {
+    "format": "npx prettier . --write"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}
