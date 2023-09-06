@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue"
+
+fetch("http://localhost:3000/articles", { mode: "no-cors" })
+  .then((response) => response.json())
+  .then((data) => console.log(data))
 </script>
 
 <template>
