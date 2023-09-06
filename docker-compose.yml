@@ -1,13 +1,13 @@
 version: "3"
 services:
   # Railsアプリケーションのサービス
-  app:
-    container_name: rails-sandbox-app
+  api:
+    container_name: rvv-api
     platform: linux/amd64
     build:
-      context: ./app
+      context: ./api
     volumes:
-      - ./app:/app
+      - ./api:/api
     ports:
       - "3000:3000"
     depends_on:
@@ -19,7 +19,7 @@ services:
   # MySQLデータベースのサービス
   db:
     image: mysql:8.0.26
-    container_name: rails-sandbox-db
+    container_name: rvv-db
     platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -29,7 +29,7 @@ services:
 
   # Vite + Vue.js
   frontend:
-    container_name: rails-sandbox-frontend
+    container_name: rvv-frontend
     build:
       context: ./frontend
     volumes:

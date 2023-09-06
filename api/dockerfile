@@ -8,7 +8,7 @@ RUN apt-get update -y && apt-get install -y \
   nodejs
 
 # Railsアプリケーションを作成するディレクトリを作成
-WORKDIR /app
+WORKDIR /api
 
 # RailsアプリケーションのGem依存関係をインストール
 COPY Gemfile Gemfile.lock ./
