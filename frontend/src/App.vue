@@ -1,26 +1,11 @@
 <script setup lang="ts">
+import { Articles, fetchArticles } from "./fetch/articles"
 import { onMounted, ref } from "vue"
 
-type ResponseData = { name?: string; age?: number; job?: string }
-type FetchData = () => Promise<ResponseData>
-
-const fetchData: FetchData = async () => {
-  try {
-    const response = await fetch("http://localhost:3000/articles")
-    if (!response.ok) throw new Error("Network response was not ok.")
-
-    const data = await response.json()
-    console.log(data)
-    return data
-  } catch (error) {
-    console.error("fetch error", error)
-  }
-}
-
-const response = ref<ResponseData>({})
+const response = ref<Articles>({})
 
 onMounted(async () => {
-  response.value = await fetchData()
+  response.value = await fetchArticles()
 })
 </script>
 
