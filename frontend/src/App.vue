@@ -1,36 +1,34 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue"
+import { onMounted, ref } from "vue"
 
-fetch("http://localhost:3000/articles", { mode: "no-cors" })
-  .then((response) => response.json())
-  .then((data) => console.log(data))
+type ResponseData = { name?: string; age?: number; job?: string }
+type FetchData = () => Promise<ResponseData>
+
+const fetchData: FetchData = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/articles")
+    if (!response.ok) throw new Error("Network response was not ok.")
+
+    const data = await response.json()
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error("fetch error", error)
+  }
+}
+
+const response = ref<ResponseData>({})
+
+onMounted(async () => {
+  response.value = await fetchData()
+})
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <p>Hi.</p>
+  <p>My name is {{ response.name }}.</p>
+  <p>I'm {{ response.age }} years old.</p>
+  <p>My job is {{ response.job }}.</p>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>

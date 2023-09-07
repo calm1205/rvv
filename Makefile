@@ -10,3 +10,5 @@ shell-frontend:
 	docker compose exec frontend /bin/bash
 console:
 	docker compose exec api rails console
+migrate:
+	docker compose exec api rails db:migrate
